@@ -1,0 +1,46 @@
+/* Navbar styles */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #4330d2;
+    color: #e8dbdb;
+}
+
+.nav-logo-container {
+    flex: 0 0 auto;
+    margin-right: 1rem;
+}
+
+.nav-logo {
+    max-width: 100px;
+    height: auto;
+}
+
+.nav-buttons-container {
+    display: flex;
+    align-items: center;
+}
+
+.nav-button {
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    color: #ff0; /* Change color on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    .nav-buttons-container {
+        margin-top: 1rem;
+    }
+}
