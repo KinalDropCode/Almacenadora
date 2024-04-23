@@ -1,14 +1,26 @@
 import { useRoutes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import routes from "./routes.jsx";
+import { Main } from './components/Main.jsx'
 
 export const App = () => {
-  let element = useRoutes(routes);
 
-  return (
+  return(
     <>
-      {element}
-      <Toaster position="bottom-right" reverseOrder={false} />
+        <div className="card-main">
+           <h1>Tareas por realizar</h1>
+          <div className="style-homes">
+              <h2>Tareas: 4</h2>
+              <h2>Pendientes: 3</h2>
+          </div>
+
+          <div className="style-add">
+            <h2>Agregar</h2>
+            <Main/>
+          </div>
+
+          <Main/>
+        </div>
+
     </>
   );
 };
