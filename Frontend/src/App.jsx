@@ -18,7 +18,6 @@ export const App = () => {
             <Main/>
           </div>
 
-          <Main/>
         </div>
 
     </>

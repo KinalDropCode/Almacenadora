@@ -110,7 +110,7 @@ ul li form {
 	text-decoration: line-through;
 }
 
-.btn-delete {
+.deleted-homeworks {
 	background-color: var(--rojo);
 	color: #fff;
 	padding: 15px;
@@ -124,7 +124,7 @@ ul li form {
 	font-family: inherit;
 }
 
-.btn-delete:hover {
+.deleted-homeworks:hover {
 	background-color: var(--rojo-hover);
 }
 
