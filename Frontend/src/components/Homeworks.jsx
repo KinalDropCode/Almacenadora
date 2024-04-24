@@ -11,6 +11,7 @@ const Homeworks = () => {
             <span >
                 <label htmlFor='' className='realized-homeworks'></label>
             </span>
+            <Update/>
             <button className='deleted-homeworks'><MdAutoDelete /></button>
         
         </li>

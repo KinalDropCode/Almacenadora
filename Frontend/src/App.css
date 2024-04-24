@@ -82,7 +82,7 @@ ul li form {
 	justify-content: space-between;
 }
 
-.input-update {
+.styles-update {
 	border: none;
 	font-weight: 500;
 	font-family: inherit;
@@ -128,7 +128,7 @@ ul li form {
 	background-color: var(--rojo-hover);
 }
 
-.btn-edit {
+.update-but-container {
 	background-color: var(--azul);
 	color: #fff;
 	padding: 15px;
@@ -142,7 +142,7 @@ ul li form {
 	font-family: inherit;
 }
 
-.btn-edit:hover {
+.update-but-container:hover {
 	background-color: var(--azul-hover);
 }
 
