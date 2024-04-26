@@ -8,7 +8,7 @@ export const Add = () => {
         className='styles-add' 
         name='description' 
         placeholder='Tareas'
-         value='Learn'/>
+        value='Learn'/>
 
         <button className='add-but' type='submit'>Agregar</button>
 

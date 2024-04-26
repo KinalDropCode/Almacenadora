@@ -1,25 +1,47 @@
-import { useRoutes } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
+import { useState as useSt } from 'react';
+import './App.css';
+import { Add } from './components/Add.jsx';
 import { Main } from './components/Main.jsx'
+import { useTask } from './hooks/useTask';
 
-export const App = () => {
+function TaskApp() {
+	const {
+		pendingTasksCount,
+    tasks,
+  	handleFinishTask,
+		handleRemoveTask,
+		tasksCount,
+    handleUpdateTask,
+		handleNewTask,
+	} = useTask();
 
-  return(
-    <>
-        <div className="card-main">
-           <h1>Tareas por realizar</h1>
-          <div className="style-homes">
-              <h2>Tareas: 4</h2>
-              <h2>Pendientes: 3</h2>
-          </div>
+	return (
+		<>
+			<div className='task-card'>
+				<h1>Tareas</h1>
+				<div className='task-counter'>
+					<h3>
+						Tareas por realizar: <span>{pendingTasksCount}</span>
+					</h3>
+          <h3>
+						Total de tareas: <span>{tasksCount}</span>
+					</h3>
+				</div>
 
-          <div className="style-add">
-            <h2>Agregar</h2>
-            <Main/>
-          </div>
+				<div className='add-task'>
+					<h3>Agregar Tarea</h3>
+					<Add handleNewTask={handleNewTask} />
+				</div>
 
-        </div>
+				<TaskDisplay
+					tasks={tasks}
+					handleUpdateTask={handleUpdateTask}
+					handleRemoveTask={handleRemoveTask}
+					handleFinishTask={handleFinishTask}
+				/>
+			</div>
+		</>
+	);
+}
 
-    </>
-  );
-};
+export default TaskApp;
