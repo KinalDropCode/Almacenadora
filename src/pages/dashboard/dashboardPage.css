@@ -110,6 +110,7 @@
     right: 0;
     top: 50px;
     overflow-x: hidden;
+    background-color: #6b8493;
 }
 
 .tasks-container {
