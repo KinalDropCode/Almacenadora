@@ -12,11 +12,14 @@ import "./dashboardPage.css";
 
 
 export const DashboardPage = () => {
-  const { getTasks, navigate, isFetching} = useTasks()
+  const { getTasks, allTasks, navigate, isFetching} = useTasks()
 
   useEffect(() => {
     getTasks();
   }, []);
+  console.log("allTasks de DashboardPage.jsx");
+  console.log(allTasks);
+  console.log("final dashboardPage.jsx");
 
   if (isFetching) {
     return <LoadSpinner />;
@@ -24,8 +27,8 @@ export const DashboardPage = () => {
   return (
     <div className="dashboard-container">
       <Navbar />
-      <Sidebar channels={navigate || []}/>
-      <Content channels={getTasks || []} getTasks={getTasks}/>
+      <Sidebar tasks={navigate || []}/>
+      <Content tasks={allTasks || []} getTasks={getTasks}/>
     </div>
   );
 };

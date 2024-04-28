@@ -5,15 +5,18 @@ import { TaskCard } from "./TaskCard";
 export const Tasks = ({tasks}) => {
     const navigate  = useNavigate()
 
+    console.log("tasks llegando a Tasks.jsx");
+    console.log(tasks);
+    console.log("final Tasks.jsx");
     const handleNavigateToChannel = (id) => {
         navigate(`/task/${id}`)
     }
-
+    
     return(
         <div className="tasks-container">
             {tasks.map((task) => (
                 <TaskCard
-                    id={task.id}
+                    id={task.uid}
                     nameTask={task.nameTask}
                     endDate={task.endDate}
                     statusTask={task.statusTask}

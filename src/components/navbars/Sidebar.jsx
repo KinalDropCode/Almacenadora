@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 
 
-export const Sidebar = ({channels}) =>{
-    if(!channels){
+export const Sidebar = ({tasks}) =>{
+    if(!tasks){
         return null
     }
 
@@ -10,16 +10,16 @@ export const Sidebar = ({channels}) =>{
         <div className="sidebar-container">
             <span className="sidebar-title">Hi again</span>
             <span className="sidebar-subtitle">Actions</span>
-            {channels.map((channel) => {
+            {tasks.map((task) => {
                 return(
-                    <div key={channel.id} className="sidebar-list-item">
-                        <span className="sidebar-list-username">{channel.username}</span>
+                    <div key={task.id} className="sidebar-list-item">
+                        <span className="sidebar-list-username">{task.username}</span>
                         <span className="sidebar-list-status"
                             style={{
-                                color: channel.isOnline ? 'green' : 'red'
+                                color: task.isOnline ? 'green' : 'red'
                             }}
                         >
-                         {channel.isOnline ? 'Online' : 'Ofline'}
+                         {task.isOnline ? 'Online' : 'Ofline'}
                         </span>
                     </div>
                 )

@@ -31,8 +31,9 @@ export const useTasks = () => {
                     tasksData.e?.response?.data || 'Upss! an error occurred while reading the task list'
                 );
             }
-            setTasks({tasks: tasksData.data.tasks});
+            setTasks({tasks: tasksData.data.task});
             toast.success('Excellent! The task list was read successfully');
+            
         } catch (error) {
             toast.error(error.message);
         }
@@ -41,7 +42,7 @@ export const useTasks = () => {
     return{
         getTasks,
         isFetching: !Boolean(tasks),
-        // allTasks: tasks?.tasks
-        allTasks: tasks
+        allTasks: tasks?.tasks
+        // allTasks: tasks
     }
 }
