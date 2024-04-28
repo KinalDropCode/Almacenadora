@@ -8,8 +8,8 @@ export const Sidebar = ({channels}) =>{
 
     return(
         <div className="sidebar-container">
-            <span className="sidebar-title">Sugeridos</span>
-            <span className="sidebar-subtitle">CANALES QUE SIGO</span>
+            <span className="sidebar-title">Hi again</span>
+            <span className="sidebar-subtitle">Actions</span>
             {channels.map((channel) => {
                 return(
                     <div key={channel.id} className="sidebar-list-item">

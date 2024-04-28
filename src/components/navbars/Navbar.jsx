@@ -28,7 +28,7 @@ export const Navbar = () => {
   const navigate = useNavigate()
 
   const handleNavigateToTasksPage = () => {
-    navigate('/tasks')
+    navigate('/task')
   }
 
   return (

@@ -15,6 +15,7 @@
     z-index: 10;
     display: flex;
     align-items: center;
+    background-color: rgb(41, 37, 37);
 }
 
 .sidebar-container {
@@ -38,7 +39,7 @@
     font-size: 18px;
     margin-left: 20px;
     margin-right: 20px;
-    color: #d2d2dd;
+    color: #fff;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -60,14 +61,14 @@
     margin-left: 10px;
     margin-top: 20px;
     margin-bottom: 1cqmax;
-    color: #0e0e10;
+    color: #fff;
 }
 
 .sidebar-subtitle {
     font-size: 14px;
     font-weight: bold;
     margin-left: 10px;
-    color: #0e0e10;
+    color: #fff;
 }
 
 .sidebar-list-item {
@@ -76,13 +77,13 @@
    margin-top: 10px;
    justify-content: space-between;
    align-items: center;
-   color: #9b9797;
+   color: #fff;
 }
 
 .sidebar-list-username {
     font-size: 18px;
     margin-left: 10px;
-    color: #8f8f94;
+    color: #fff;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -96,7 +97,7 @@
     font-weight: bold;
     margin-top: 10px;
     margin-right: 10px;
-    color: #0e0e10;
+    color: #fff;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -111,7 +112,7 @@
     overflow-x: hidden;
 }
 
-.channels-container {
+.tasks-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 10px; /* Space between grid items */

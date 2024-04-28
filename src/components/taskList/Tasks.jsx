@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import { TaskCard } from "./TaskCard";
 
-export const Tasks = ({channels}) => {
+export const Tasks = ({tasks}) => {
     const navigate  = useNavigate()
 
     const handleNavigateToChannel = (id) => {
@@ -10,15 +10,15 @@ export const Tasks = ({channels}) => {
     }
 
     return(
-        <div className="channels-container">
-            {channels.map((c) => (
+        <div className="tasks-container">
+            {tasks.map((task) => (
                 <TaskCard
-                    key={c.id}
-                    id={c.id}
-                    title={c.title}
-                    username={c.username}
-                    isOnline={c.isOnline}
-                    avatarUrl={c.avatarUrl}
+                    id={task.id}
+                    nameTask={task.nameTask}
+                    endDate={task.endDate}
+                    statusTask={task.statusTask}
+                    author={task.author}
+                    description={task.description}
                     navigateToChannelHandler={handleNavigateToChannel}
                 />
             ))}
