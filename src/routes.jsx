@@ -1,8 +1,6 @@
-import { DashboardPage } from "./pages/dashboard/export";
-// import { AuthPage } from "./pages/auth";
+import { DashboardPage } from "./pages/dashboard/export.js";
 
 const routes = [
-    // {path: '/auth', element: <AuthPage/>},
     {path: '/*', element: <DashboardPage/>}
 ]
 
