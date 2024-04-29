@@ -1,9 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { Navbar } from "../../components/navbars/Navbar";
+import { NavbarBootstrap } from "../../components/navbars/NavbarBootstrap";
 import { LoadSpinner } from "../../components/LoadSpinner";
 import { Content } from "../../components/dashboard/Content";
 import { Sidebar } from "../../components/navbars/Sidebar";
+import { SidebarBootstrap } from "../../components/navbars/sidebars/SidebarBootstrap";
 import { useTasks } from "../../shared/hooks/useTasks";
 import  "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -26,8 +28,10 @@ export const DashboardPage = () => {
   }
   return (
     <div className="dashboard-container">
-      <Navbar />
-      <Sidebar tasks={navigate || []}/>
+      {/* <Navbar /> */}
+      <NavbarBootstrap />
+      <SidebarBootstrap tasks={navigate || []}/>
+      {/* <Sidebar tasks={navigate || []}/> */}
       <Content tasks={allTasks || []} getTasks={getTasks}/>
     </div>
   );
