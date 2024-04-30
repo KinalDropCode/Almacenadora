@@ -32,7 +32,8 @@ export const NavbarBootstrap = () => {
     }
 
     return (
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar bg-dark navbar-expand-lg ">
+         {/* <nav class="navbar bg-dark  navbar-expand-lg bg-body-tertiary"> */}
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src={logo} alt="Bootstrap" width="30" height="24"/>

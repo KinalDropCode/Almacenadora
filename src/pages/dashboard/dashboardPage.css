@@ -104,11 +104,11 @@
 
 .content-container {
     position: absolute;
-    height: calc(100vh - 50px);
-    width: calc(100vw - 200px);
-    left: 200px;
+    height: calc(100vh - 54px);
+    width: calc(87vw - 0px);
+    left: 250px;
     right: 0;
-    top: 50px;
+    top: 55px;
     overflow-x: hidden;
     background-color: #6b8493;
 }

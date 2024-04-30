@@ -6,7 +6,7 @@ export const SidebarBootstrap = ({ tasks }) => {
     }
 
     return (
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"  style={{ width: '280px' }}>
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"  style={{ width: '250px', height: '94vh' }}>
 
 
             <link href="./sidebars.css" rel="stylesheet" />
