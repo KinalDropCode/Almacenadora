@@ -31,7 +31,7 @@ export const SidebarBootstrap = ({ tasks }) => {
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="newTask" class="nav-link text-white">
                         <img src="https://cdn2.iconfinder.com/data/icons/buno-ui-interface/32/__dashboard_grid_layout-256.png" alt="" width="32" height="32" class="rounded-circle me-2" />
                         Create New Task
                     </a>

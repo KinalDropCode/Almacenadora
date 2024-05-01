@@ -1,0 +1,129 @@
+
+.task-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1b113f; /* Color de fondo oscuro */
+}
+
+.task {
+    position: relative;
+    background-color: #333; /* Color de fondo oscuro */
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1); /* Sombra suave */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    padding: 20px;
+    width: 20rem;
+    margin: 16px;
+    font-family: 'Roboto', sans-serif;
+    border-left: 8px solid #ffcc00; /* Borde izquierdo amarillo */
+    overflow: hidden; /* Oculta cualquier contenido que sobresalga */
+}
+
+.task::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
+    border-top: 2px solid #ffcc00; /* Triángulo superior */
+    border-left: 2px solid #ffcc00;
+    background-color: #333; /* Mismo color que el fondo */
+    transform: rotate(45deg);
+}
+
+.task::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    width: 16px;
+    height: 16px;
+    border-bottom: 2px solid #ffcc00; /* Triángulo inferior */
+    border-right: 2px solid #ffcc00;
+    background-color: #333; /* Mismo color que el fondo */
+    transform: rotate(45deg);
+}
+
+.task:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(255, 255, 255, 0.3);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.task-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fffcfc; /* Color de texto claro */
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2); /* Sombra suave */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+    text-align: center; /* Alinear al centro */
+    padding: 10px 0; /* Espacio interior */
+    display: inline-block; /* Asegurar que el padding no se extienda más allá del texto */
+    border-bottom: 3px solid #ddd; /* Línea inferior */
+    line-height: 1; /* Altura de línea ajustada */
+}
+
+.task-tile:hover {
+    color: #007bff; /* Cambio de color al pasar el cursor */
+    border-color: #007bff; /* Cambio de color de la línea inferior al pasar el cursor */
+}
+
+.task-date,
+.task-status {
+    font-size: 1rem;
+    color: #edebeb; /* Color de texto gris claro */
+    margin-bottom: 5px;
+}
+
+.task-status {
+    font-weight: bold;
+}
+
+.task-description {
+    color: #ede9e9; /* Color de texto gris medio */
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+    border-left: 4px solid #ff6600; /* Borde izquierdo naranja */
+    padding-left: 12px; /* Espacio interno a la izquierda del borde */
+    position: relative; /* Establece posición relativa para poder agregar un pseudo-elemento */
+}
+
+.task-description::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    background-color: #ff6600; /* Color del punto naranja */
+    border-radius: 50%; /* Hace que el punto sea redondeado */
+}
+
+.task-author {
+    font-style: italic;
+    color: #ddd; /* Color de texto claro */
+    margin-top: 8px; /* Añadir espacio superior */
+    font-size: 0.9rem; /* Tamaño de fuente ligeramente reducido */
+    transition: color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0
+}
