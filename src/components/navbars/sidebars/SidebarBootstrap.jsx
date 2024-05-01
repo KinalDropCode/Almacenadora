@@ -58,9 +58,8 @@ export const SidebarBootstrap = ({ tasks }) => {
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                     <li><a class="dropdown-item" href="https://github.com/orgs/KinalDropCode/repositories" target="_blank">New Projects...</a></li>
                     <li><a class="dropdown-item" href="https://github.com/orgs/KinalDropCode/people" target="_blank">Our Team</a></li>
-                    <li><a class="dropdown-item" href="#">Briefcase</a></li>
                     <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#">Contact us</a></li>
+                    <li><a class="dropdown-item" href="mailto:areyes-2019092@kinal.edu.gt">Contact us</a></li>
                 </ul>
             </div>
             <div class="b-example-divider"></div>
