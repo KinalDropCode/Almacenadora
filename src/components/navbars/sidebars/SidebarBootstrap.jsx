@@ -37,13 +37,13 @@ export const SidebarBootstrap = ({ tasks }) => {
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="taskDone" class="nav-link text-white">
                         <img src="https://cdn4.iconfinder.com/data/icons/buno-info-signs/32/__layer_layers_stack-64.png" alt="" width="32" height="32" class="rounded-circle me-2" />
                         Order by Completed
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="taskEarring" class="nav-link text-white">
                         <img src="https://cdn1.iconfinder.com/data/icons/buno-ecommerce-shopping-1/32/invoice_list_shopping_shop_todo-64.png" alt="" width="32" height="32" class="rounded-circle me-2" />
                         Order by Earring
                     </a>
