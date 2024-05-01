@@ -77,7 +77,11 @@
     border-color: #007bff; /* Cambio de color de la línea inferior al pasar el cursor */
 }
 
-.task-date,
+.task-date{
+    color: #fffcfc;
+    text-align: center;
+}
+
 .task-status {
     font-size: 1rem;
     color: #edebeb; /* Color de texto gris claro */
