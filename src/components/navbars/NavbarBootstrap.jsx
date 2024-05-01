@@ -36,23 +36,31 @@ export const NavbarBootstrap = () => {
          {/* <nav class="navbar bg-dark  navbar-expand-lg bg-body-tertiary"> */}
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src={logo} alt="Bootstrap" width="30" height="24"/>
+                    <img src={logo} alt="Task Manager" width="30" height="24"/>
                 </a>
 
-                <a class="navbar-brand" href="#">Task Manager</a>
+                <a class="navbar-brand text-light" href="task">Task Manager</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                GitHub
+                            </a>
+                            <ul class="dropdown-menu" data-bs-theme="dark">
+                                <li><a class="dropdown-item" href="https://github.com/KinalDropCode/Almacenadora-back" target="_blank">Backend</a></li>
+                                <li><a class="dropdown-item" href="https://github.com/KinalDropCode/Almacenadora" target="_blank">Frontend</a></li>
+                                <li><hr class="dropdown-divider "/></li>
+                                <li><a class="dropdown-item" href="https://github.com/KinalDropCode" target="_blank">&copy; Kinal Drop Code</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">GitHub</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Premium +</a>
+                            <a class="nav-link disabled text-white-50" aria-disabled="true">Premium +</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">

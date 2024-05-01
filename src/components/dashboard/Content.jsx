@@ -4,6 +4,9 @@ import { Tasks } from "../taskList/Tasks";
 
 
 export const Content = ({tasks}) => {
+    console.log("tasks llegando a Content.jsx");
+    console.log(tasks);
+    console.log("final Content.jsx");
     return(
         <div className="content-container">
             <Routes>

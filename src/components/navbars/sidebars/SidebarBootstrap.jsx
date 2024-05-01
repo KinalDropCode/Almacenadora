@@ -25,7 +25,7 @@ export const SidebarBootstrap = ({ tasks }) => {
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="task" class="nav-link text-white">
                         <img src="https://cdn4.iconfinder.com/data/icons/buno-info-signs/32/__dashboard_speedometer_gauge-64.png" alt="" width="32" height="32" class="rounded-circle me-2" />
                         Dashboard
                     </a>
@@ -56,8 +56,8 @@ export const SidebarBootstrap = ({ tasks }) => {
                     <strong>About us</strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="#">New Projects...</a></li>
-                    <li><a class="dropdown-item" href="#">Our Team</a></li>
+                    <li><a class="dropdown-item" href="https://github.com/orgs/KinalDropCode/repositories" target="_blank">New Projects...</a></li>
+                    <li><a class="dropdown-item" href="https://github.com/orgs/KinalDropCode/people" target="_blank">Our Team</a></li>
                     <li><a class="dropdown-item" href="#">Briefcase</a></li>
                     <li><hr class="dropdown-divider" /></li>
                     <li><a class="dropdown-item" href="#">Contact us</a></li>
