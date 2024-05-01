@@ -2,6 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/img/TaskLogo.svg";
 
+
 const NavLogo = () => {
     return (
         <div className="nav-logo-container">
