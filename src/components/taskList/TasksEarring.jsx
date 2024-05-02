@@ -15,8 +15,6 @@ export const TasksEarring = ({tasks}) => {
     
     console.log("earring tasks from task earring")
     console.log(earringTasks)
-
-    
     return(
         <div className="tasks-container">
             {earringTasks.map((task) => (
