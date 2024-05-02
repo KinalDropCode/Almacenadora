@@ -1,133 +1,143 @@
+/* Estilos base */
 .task-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-    background-color: #1b113f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  background-color: #1b113f;
 }
 
 .task {
-    position: relative;
-    background-color: #333;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    padding: 20px;
-    width: 20rem;
-    margin: 16px;
-    font-family: 'Roboto', sans-serif;
-    border-left: 8px solid #00d0ff;
-    overflow: hidden;
+  position: relative;
+  background-color: #333;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(166, 37, 37, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  padding: 20px;
+  width: 20rem;
+  margin: 16px;
+  font-family: "Roboto", sans-serif;
+  border-left: 8px solid #00d0ff;
+  overflow: hidden;
 }
 
 .task::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    width: 16px;
-    height: 16px;
-    border-top: 2px solid #00d0ff;
-    border-left: 2px solid #00d0ff;
-    background-color: #333;
-    transform: rotate(45deg);
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  border-top: 2px solid #00d0ff;
+  border-left: 2px solid #00d0ff;
+  background-color: #333;
+  transform: rotate(45deg);
 }
 
 .task::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    right: -8px;
-    width: 16px;
-    height: 16px;
-    border-bottom: 2px solid #00d0ff;
-    border-right: 2px solid #00d0ff;
-    background-color: #333;
-    transform: rotate(45deg);
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  width: 16px;
+  height: 16px;
+  border-bottom: 2px solid #00d0ff;
+  border-right: 2px solid #00d0ff;
+  background-color: #333;
+  transform: rotate(45deg);
 }
 
 .task:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(255, 255, 255, 0.3);
 }
 
 .card-body {
-    padding: 20px;
+  padding: 20px;
 }
 
 .task-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fffcfc;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-    text-align: center;
-    padding: 10px 0;
-    display: inline-block;
-    border-bottom: 3px solid #ddd;
-    line-height: 1;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fffcfc;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  text-align: center;
+  padding: 10px 0;
+  display: inline-block;
+  border-bottom: 3px solid #ddd;
+  line-height: 1;
 }
 
 .task-tile:hover {
-    color: #007bff;
-    border-color: #007bff;
+  color: #007bff;
+  border-color: #007bff;
 }
 
 .task-date {
-    color: #fffcfc;
-    text-align: center;
+  color: #fffcfc;
+  text-align: center;
 }
 
 .task-status {
-    font-size: 1rem;
-    color: #edebeb;
-    margin-bottom: 5px;
-    font-weight: bold;
+  font-size: 1rem;
+  color: #edebeb;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .task-description {
-    color: #ede9e9;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: justify;
-    border-left: 4px solid #ff6600;
-    padding-left: 12px;
-    position: relative;
+  color: #ede9e9;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+  border-left: 4px solid #ff6600;
+  padding-left: 12px;
+  position: relative;
+  display: block;
 }
 
 .task-description::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    width: 8px;
-    height: 8px;
-    background-color: #ff6600;
-    border-radius: 50%;
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: #ff6600;
+  border-radius: 50%;
 }
 
 .task-author {
-    font-style: italic;
-    color: #ddd;
-    margin-top: 8px;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
+  font-style: italic;
+  color: #ddd;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
 }
 
 .btn-primary {
-    background-color: #0eb33a;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #0eb33a;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: #13d747;
+  background-color: #13d747;
+}
+
+/* Reglas de medios para hacerlo responsive */
+@media screen and (max-width: 768px) {
+  .task {
+    width: 100%;
+    margin: 16px 0;
+  }
 }
