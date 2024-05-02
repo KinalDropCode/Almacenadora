@@ -12,6 +12,7 @@ export const Tasks = ({tasks}) => {
         navigate(`/task/${id}`)
     }
     
+
     return(
         <div className="tasks-container">
             {tasks.map((task) => (
