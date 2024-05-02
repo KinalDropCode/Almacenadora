@@ -12,12 +12,12 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import "./dashboardPage.css";
 
-
 export const DashboardPage = () => {
   const { getTasks, allTasks, navigate, isFetching} = useTasks()
 
   useEffect(() => {
     getTasks();
+    
   }, []);
   console.log("allTasks de DashboardPage.jsx");
   console.log(allTasks);

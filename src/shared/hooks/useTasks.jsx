@@ -1,10 +1,10 @@
 /* eslint-disable no-extra-boolean-cast */
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { getTasks as getTasksRequest } from "../../services/api.jsx";
+import { getTasks as getTasksRequest} from "../../services/api.jsx";
 
 export const useTasks = () => {
-    const [ tasks, setTasks] = useState([])
+    const [tasks, setTasks] = useState([])
 
     // const getTasks = async () =>{
     //     const tasksData = await getTasksRequest()
@@ -31,16 +31,16 @@ export const useTasks = () => {
                     tasksData.e?.response?.data || 'Upss! an error occurred while reading the task list'
                 );
             }
-            setTasks({tasks: tasksData.data.task});
+            setTasks({ tasks: tasksData.data.task });
             toast.success('Excellent! The task list was read successfully');
-            
+
         } catch (error) {
             toast.error(error.message);
         }
     };
-
-    return{
+    return {
         getTasks,
+        
         isFetching: !Boolean(tasks),
         allTasks: tasks?.tasks
         // allTasks: tasks

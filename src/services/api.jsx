@@ -17,7 +17,31 @@ export const getTasks = async () => {
         }
     }
 }
+export const getCompletedTasks = async () => {
+    try{
+        console.log("vamos bien")
+        return await apiClient.get('/task/completed')
+    }catch(e){
+        console.log("la cagamos xd")
+        return{
+            error: true,
+            e
+        }
+    }
+}
 
+export const getEarringTasks = async () => {
+    try{
+        console.log("vamos bien")
+        return await apiClient.get('/task/earring')
+    }catch(e){
+        console.log("la cagamos xd")
+        return{
+            error: true,
+            e
+        }
+    }
+}
 const checkResponseStatus = (e) => {
     const responseStatus = e?.response?.status
 
