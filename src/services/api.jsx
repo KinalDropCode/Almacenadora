@@ -26,6 +26,18 @@ export const getTasks = async () => {
         }
     }
 }
+
+export const putCompleteTask = async (id) => {
+    try{
+        return await apiClient.put(`task/complete/${id}`)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
 export const getCompletedTasks = async () => {
     try{
         return await apiClient.get('/task/completed')

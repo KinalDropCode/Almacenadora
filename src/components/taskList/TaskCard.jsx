@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./task1.css";
-import DeleteIcon from '../../assets/img/DeleteIcon.png';
-import EditIcon from '../../assets/img/EditIcon.png';
-import Modal from 'react-bootstrap/Modal';
-import { format, isValid } from 'date-fns';
+import DeleteIcon from "../../assets/img/DeleteIcon.png";
+import EditIcon from "../../assets/img/EditIcon.png";
+import Modal from "react-bootstrap/Modal";
+import { useNavigate } from "react-router-dom";
+import { format, isValid } from "date-fns";
+import {putCompleteTask} from "../../services/api"
 
 export const TaskCard = ({
   id,
@@ -16,24 +18,26 @@ export const TaskCard = ({
   onDeleteTask,
   onEditTask,
 }) => {
+  const [taskId] = useState(id);
   const [pendingVisible, setPendingVisible] = useState(false);
   const [deleteVisible, setDeleteVisible] = useState(true);
   const [completeVisible, setCompleteVisible] = useState(true);
   const [editVisible, setEditVisible] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
-  console.log(typeof (startDate))
-
+  console.log(typeof startDate);
+  const navigate  = useNavigate()
   // Función para formatear las fechas
   const formatDate = (date) => {
-    return isValid(new Date(date)) ? format(new Date(date), 'yyyy-MM-dd') : '';
+    return isValid(new Date(date)) ? format(new Date(date), "yyyy-MM-dd") : "";
   };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEditedTask((prevState) => ({
       ...prevState,
-      [name]: name === "startDate" || name === "endDate" ? formatDate(value) : value, // Formatear la fecha antes de actualizar el estado
+      [name]:
+        name === "startDate" || name === "endDate" ? formatDate(value) : value, // Formatear la fecha antes de actualizar el estado
     }));
   };
 
@@ -73,7 +77,21 @@ export const TaskCard = ({
     setShowModal(true); // Mostrar el modal al hacer clic en el botón de editar
   };
 
-  const statusColor = statusTask === "Completed" ? "text-success" : "text-danger";
+  const handleNavigateToComplete = (id) => {
+    navigate(`/complete/${taskId}`);
+  };
+
+  const completeTask = async () => {
+    try {
+      const response = await putCompleteTask(taskId);
+      window.location.reload();
+    } catch (error) {
+      console.error("Error completing task:", error);
+    }
+  }
+
+  const statusColor =
+    statusTask === "Completed" ? "text-success" : "text-danger";
 
   return (
     <div className="task-container">
@@ -86,12 +104,17 @@ export const TaskCard = ({
           <p className="task-author">{author}</p>
           <p className="task-description">{description}</p>
 
-          {completeVisible && (
+          {/* {completeVisible && (
             <button className="btn-primary" onClick={handleCompleteTask}>
               Complete Task
             </button>
-          )}
+          )} */}
 
+          
+            <button className="btn-primary" onClick={completeTask}>
+              Complete Task
+            </button>
+          
           {pendingVisible && (
             <button className="btn-pending" onClick={handlePendingTask}>
               Pending
@@ -109,7 +132,6 @@ export const TaskCard = ({
               <img src={DeleteIcon} alt="Delete" />
             </button>
           )}
-
         </div>
       </div>
 
