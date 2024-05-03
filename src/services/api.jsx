@@ -5,12 +5,21 @@ const apiClient = axios.create({
     timeout: 5000
 })
 
+export const addTask = async (data) => {
+    try{
+        return await apiClient.post('/task/create', data)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
 export const getTasks = async () => {
     try{
-        console.log("vamos bien")
         return await apiClient.get('task')
     }catch(e){
-        console.log("la cagamos xd")
         return{
             error: true,
             e
@@ -19,10 +28,8 @@ export const getTasks = async () => {
 }
 export const getCompletedTasks = async () => {
     try{
-        console.log("vamos bien")
         return await apiClient.get('/task/completed')
     }catch(e){
-        console.log("la cagamos xd")
         return{
             error: true,
             e
@@ -32,10 +39,8 @@ export const getCompletedTasks = async () => {
 
 export const getEarringTasks = async () => {
     try{
-        console.log("vamos bien")
         return await apiClient.get('/task/earring')
     }catch(e){
-        console.log("la cagamos xd")
         return{
             error: true,
             e
