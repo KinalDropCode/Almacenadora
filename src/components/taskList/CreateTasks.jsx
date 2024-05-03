@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useTask } from "../../shared/hooks/useAddTask";
-import toast from "react-hot-toast";
 import './createTasks1.css'
 
 export const AddTask = ({ switchAuthHandler }) => {
@@ -34,6 +33,8 @@ export const AddTask = ({ switchAuthHandler }) => {
         }
     });
 
+    const [showErrorOnce, setShowErrorOnce] = useState(false);
+
     const handleInputValueChange = (value, field) => {
         setFormState((prevState) => ({
             ...prevState,
@@ -46,8 +47,21 @@ export const AddTask = ({ switchAuthHandler }) => {
 
     const handleAddTask = (event) => {
         event.preventDefault();
-        const { nameTask, description, startDate, endDate, author } = formState;
-        addTask(nameTask.value, description.value, startDate.value, endDate.value, author.value);
+
+        // Verificar si algún campo está vacío
+        const isAnyFieldEmpty = Object.values(formState).some(field => field.value === '');
+
+        if (isAnyFieldEmpty && !showErrorOnce) {
+            setShowErrorOnce(true);
+            setFormState(prevState => Object.keys(prevState).reduce((acc, key) => {
+                acc[key] = { ...prevState[key], showError: true };
+                return acc;
+            }, {}));
+            return;
+        }
+
+        // Reiniciar el estado si no hay campos vacíos
+        setShowErrorOnce(false);
         setFormState({
             nameTask: {
                 value: '',
@@ -75,6 +89,10 @@ export const AddTask = ({ switchAuthHandler }) => {
                 showError: false
             }
         });
+
+        // Agregar la tarea si no hay campos vacíos
+        const { nameTask, description, startDate, endDate, author } = formState;
+        addTask(nameTask.value, description.value, startDate.value, endDate.value, author.value);
     }
 
     const isSubmitButtonDisabled = isLoading ||
@@ -86,6 +104,8 @@ export const AddTask = ({ switchAuthHandler }) => {
 
     return (
         <div className="add-task-container">
+            <h2 className="add-task-title">Crear Tareas</h2>
+            {showErrorOnce && <p className="error-message">Por favor, completa todos los campos.</p>}
             <form className="add-task-form">
                 <input
                     type="text"
@@ -123,6 +143,7 @@ export const AddTask = ({ switchAuthHandler }) => {
                 <button className="add-task-button" onClick={handleAddTask} >
                     Add Task
                 </button>
+                
             </form>
             <span onClick={switchAuthHandler}></span>
         </div>
