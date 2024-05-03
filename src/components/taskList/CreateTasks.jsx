@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTask } from "../../shared/hooks/useAddTask";
 import toast from "react-hot-toast";
+import './createTasks1.css'
 
 export const AddTask = ({ switchAuthHandler }) => {
     const { addTask, isLoading } = useTask();
@@ -84,43 +85,46 @@ export const AddTask = ({ switchAuthHandler }) => {
         !formState.author.isValid
 
     return (
-        <div>
-            <form>
+        <div className="add-task-container">
+            <form className="add-task-form">
                 <input
                     type="text"
+                    className="add-task-input"
                     placeholder="Task Title"
                     value={formState.nameTask.value}
                     onChange={(event) => handleInputValueChange(event.target.value, 'nameTask')}
                 />
                 <input
                     type="text"
+                    className="add-task-input"
                     placeholder="Description"
                     value={formState.description.value}
                     onChange={(event) => handleInputValueChange(event.target.value, 'description')}
                 />
                 <input
                     type="date"
+                    className="add-task-input"
                     value={formState.startDate.value}
                     onChange={(event) => handleInputValueChange(event.target.value, 'startDate')}
                 />
                 <input
                     type="date"
+                    className="add-task-input"
                     value={formState.endDate.value}
                     onChange={(event) => handleInputValueChange(event.target.value, 'endDate')}
                 />
                 <input
                     type="text"
+                    className="add-task-input"
                     placeholder="Author"
                     value={formState.author.value}
                     onChange={(event) => handleInputValueChange(event.target.value, 'author')}
                 />
-                <button onClick={handleAddTask}>
+                <button className="add-task-button" onClick={handleAddTask} >
                     Add Task
                 </button>
             </form>
-            <span onClick={switchAuthHandler}>
-
-            </span>
+            <span onClick={switchAuthHandler}></span>
         </div>
     );
 };
