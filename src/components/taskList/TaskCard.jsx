@@ -1,11 +1,15 @@
+import { format, isValid } from "date-fns";
 import { useState } from "react";
-import "./task1.css";
-import DeleteIcon from "../../assets/img/DeleteIcon.png";
-import EditIcon from "../../assets/img/EditIcon.png";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
-import { format, isValid } from "date-fns";
-import { putCompleteTask, putDeleteTask, putPendingTask } from "../../services/api";
+import DeleteIcon from "../../assets/img/DeleteIcon.png";
+import EditIcon from "../../assets/img/EditIcon.png";
+import {
+  putCompleteTask,
+  putDeleteTask,
+  putPendingTask,
+} from "../../services/api";
+import "./task1.css";
 
 export const TaskCard = ({
   id,
@@ -19,10 +23,14 @@ export const TaskCard = ({
   onEditTask,
 }) => {
   const [taskId] = useState(id);
-  const [pendingVisible, setPendingVisible] = useState(statusTask === "Completed");
-  const [completeVisible, setCompleteVisible] = useState(statusTask === "Earring")
+  const [pendingVisible, setPendingVisible] = useState(
+    statusTask === "Completed"
+  );
+  const [completeVisible, setCompleteVisible] = useState(
+    statusTask === "Earring"
+  );
   const [deleteVisible, setDeleteVisible] = useState(true);
-  const [editVisible, setEditVisible] = useState(statusTask === "Earring");;
+  const [editVisible, setEditVisible] = useState(statusTask === "Earring");
   const [showModal, setShowModal] = useState(false);
 
   console.log(typeof startDate);
@@ -55,30 +63,8 @@ export const TaskCard = ({
     setShowModal(false); // Cerrar el modal después de guardar los cambios
   };
 
-  const handleCompleteTask = () => {
-    setPendingVisible(true);
-    setDeleteVisible(true);
-    setEditVisible(false);
-    setCompleteVisible(false);
-  };
-
-  const handlePendingTask = () => {
-    setPendingVisible(false);
-    setEditVisible(true);
-    setCompleteVisible(true);
-    setDeleteVisible(true);
-  };  
-
-  const handleDelete = () => {
-    onDeleteTask(id);
-  };
-
   const handleEdit = () => {
     setShowModal(true); // Mostrar el modal al hacer clic en el botón de editar
-  };
-
-  const handleNavigateToComplete = (id) => {
-    navigate(`/complete/${taskId}`);
   };
 
   const pendingTask = async () => {
@@ -116,7 +102,8 @@ export const TaskCard = ({
     }
   };
 
-  const statusColor = statusTask === "Completed" ? "text-success" : "text-danger";
+  const statusColor =
+    statusTask === "Completed" ? "text-success" : "text-danger";
 
   return (
     <div className="task-container">
@@ -130,7 +117,10 @@ export const TaskCard = ({
           <p className="task-description">{description}</p>
 
           {completeVisible && (
-            <button className="btn-primary" onClick={handleCompleteOrPendingTask}>
+            <button
+              className="btn-primary"
+              onClick={handleCompleteOrPendingTask}
+            >
               Complete Task
             </button>
           )}
@@ -140,7 +130,10 @@ export const TaskCard = ({
           </button> */}
 
           {pendingVisible && (
-            <button className="btn-pending" onClick={handleCompleteOrPendingTask}>
+            <button
+              className="btn-pending"
+              onClick={handleCompleteOrPendingTask}
+            >
               Pending
             </button>
           )}
@@ -157,12 +150,9 @@ export const TaskCard = ({
             </button>
           )} */}
 
-          
-            <button className="btn-delete" onClick={deleteTask}>
-              <img src={DeleteIcon} alt="Delete" />
-            </button>
-
-
+          <button className="btn-delete" onClick={deleteTask}>
+            <img src={DeleteIcon} alt="Delete" />
+          </button>
         </div>
       </div>
 
