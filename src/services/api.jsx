@@ -59,6 +59,18 @@ export const getEarringTasks = async () => {
         }
     }
 }
+
+export const putDeleteTask = async (id) => {
+    try{
+        return await apiClient.delete(`task/${id}`)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
 const checkResponseStatus = (e) => {
     const responseStatus = e?.response?.status
 

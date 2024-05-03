@@ -5,7 +5,7 @@ import EditIcon from "../../assets/img/EditIcon.png";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import { format, isValid } from "date-fns";
-import {putCompleteTask} from "../../services/api"
+import { putCompleteTask, putDeleteTask } from "../../services/api";
 
 export const TaskCard = ({
   id,
@@ -19,14 +19,14 @@ export const TaskCard = ({
   onEditTask,
 }) => {
   const [taskId] = useState(id);
-  const [pendingVisible, setPendingVisible] = useState(false);
+  const [pendingVisible, setPendingVisible] = useState(statusTask === "Completed");
+  const [completeVisible, setCompleteVisible] = useState(statusTask === "Earring")
   const [deleteVisible, setDeleteVisible] = useState(true);
-  const [completeVisible, setCompleteVisible] = useState(true);
-  const [editVisible, setEditVisible] = useState(true);
+  const [editVisible, setEditVisible] = useState(statusTask === "Earring");;
   const [showModal, setShowModal] = useState(false);
 
   console.log(typeof startDate);
-  const navigate  = useNavigate()
+  const navigate = useNavigate();
   // Función para formatear las fechas
   const formatDate = (date) => {
     return isValid(new Date(date)) ? format(new Date(date), "yyyy-MM-dd") : "";
@@ -67,7 +67,7 @@ export const TaskCard = ({
     setEditVisible(true);
     setCompleteVisible(true);
     setDeleteVisible(true);
-  };
+  };  
 
   const handleDelete = () => {
     onDeleteTask(id);
@@ -88,10 +88,26 @@ export const TaskCard = ({
     } catch (error) {
       console.error("Error completing task:", error);
     }
-  }
+  };
 
-  const statusColor =
-    statusTask === "Completed" ? "text-success" : "text-danger";
+  const deleteTask = async () => {
+    try {
+      const response = await putDeleteTask(taskId);
+      window.location.reload();
+    } catch (error) {
+      console.error("Error deleting task:", error);
+    }
+  };
+
+  const handleCompleteOrPendingTask = () => {
+    if (statusTask === "Earring") {
+      completeTask();
+    } else if (statusTask === "Completed") {
+      handlePendingTask();
+    }
+  };
+
+  const statusColor = statusTask === "Completed" ? "text-success" : "text-danger";
 
   return (
     <div className="task-container">
@@ -104,19 +120,18 @@ export const TaskCard = ({
           <p className="task-author">{author}</p>
           <p className="task-description">{description}</p>
 
-          {/* {completeVisible && (
-            <button className="btn-primary" onClick={handleCompleteTask}>
+          {completeVisible && (
+            <button className="btn-primary" onClick={handleCompleteOrPendingTask}>
               Complete Task
             </button>
-          )} */}
+          )}
 
-          
-            <button className="btn-primary" onClick={completeTask}>
-              Complete Task
-            </button>
-          
+          {/* <button className="btn-primary" onClick={completeTask}>
+            Complete Task
+          </button> */}
+
           {pendingVisible && (
-            <button className="btn-pending" onClick={handlePendingTask}>
+            <button className="btn-pending" onClick={handleCompleteOrPendingTask}>
               Pending
             </button>
           )}
@@ -127,11 +142,18 @@ export const TaskCard = ({
             </button>
           )}
 
-          {deleteVisible && (
+          {/* {deleteVisible && (
             <button className="btn-delete" onClick={handleDelete}>
               <img src={DeleteIcon} alt="Delete" />
             </button>
-          )}
+          )} */}
+
+          
+            <button className="btn-delete" onClick={deleteTask}>
+              <img src={DeleteIcon} alt="Delete" />
+            </button>
+
+
         </div>
       </div>
 
