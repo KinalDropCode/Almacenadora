@@ -71,6 +71,17 @@ export const putDeleteTask = async (id) => {
     }
 }
 
+export const putPendingTask = async (id) => {
+    try{
+        return await apiClient.put(`task/pending/${id}`)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
 const checkResponseStatus = (e) => {
     const responseStatus = e?.response?.status
 

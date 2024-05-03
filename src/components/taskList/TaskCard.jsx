@@ -5,7 +5,7 @@ import EditIcon from "../../assets/img/EditIcon.png";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import { format, isValid } from "date-fns";
-import { putCompleteTask, putDeleteTask } from "../../services/api";
+import { putCompleteTask, putDeleteTask, putPendingTask } from "../../services/api";
 
 export const TaskCard = ({
   id,
@@ -81,6 +81,15 @@ export const TaskCard = ({
     navigate(`/complete/${taskId}`);
   };
 
+  const pendingTask = async () => {
+    try {
+      const response = await putPendingTask(taskId);
+      window.location.reload();
+    } catch (error) {
+      console.error("Error pending task:", error);
+    }
+  };
+
   const completeTask = async () => {
     try {
       const response = await putCompleteTask(taskId);
@@ -103,7 +112,7 @@ export const TaskCard = ({
     if (statusTask === "Earring") {
       completeTask();
     } else if (statusTask === "Completed") {
-      handlePendingTask();
+      pendingTask();
     }
   };
 
