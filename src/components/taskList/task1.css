@@ -135,19 +135,65 @@
   transition: background-color 0.3s;
 }
 
-.btn-delete{
+.btn-primary:active {
+  transform: translateY(6px); 
+}
+
+.btn-pending {
+  background-color: #c7c409;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-pending:active {
+  transform: translateY(6px); 
+}
+
+
+.btn-delete {
   background-color: #de2727;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
   border: none;
   padding: 4px 10px;
+  transition: transform 0.2s; /* Agrega una transición suave al transform */
 }
+
+
+.btn-delete:active,
+.btn-edit:active {
+  transform: translateY(4px);
+}
+
 .btn-edit{
-  background-color: #0eb33a;
+  background-color: #1d0c8a;
   color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
   padding: 4px 10px;
+  transition: transform 0.2s; /* Agrega una transición suave al transform */
+
 }
+
+.btn-delete img,
+.btn-edit img {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-primary,
+.btn-pending,
+.btn-delete,
+.btn-edit {
+  margin: 0 5px; /* Agrega un margen horizontal de 5px */
+}
+
 
 .btn-primary:hover {
   background-color: #13d747;
