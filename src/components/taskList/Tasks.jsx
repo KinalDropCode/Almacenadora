@@ -13,19 +13,21 @@ export const Tasks = ({tasks}) => {
     }
     
 
-    return(
+    return (
         <div className="tasks-container">
-            {tasks.map((task) => (
-                <TaskCard
-                    id={task.uid}
-                    nameTask={task.nameTask}
-                    endDate={task.endDate}
-                    statusTask={task.statusTask}
-                    author={task.author}
-                    description={task.description}
-                    navigateToChannelHandler={handleNavigateToChannel}
-                />
-            ))}
+          {tasks.map((task) => (
+            <TaskCard
+              key={task.uid} 
+              id={task.uid}
+              nameTask={task.nameTask}
+              startDate={task.startDate}
+              endDate={task.endDate}
+              statusTask={task.statusTask}
+              author={task.author}
+              description={task.description}
+              navigateToChannelHandler={handleNavigateToChannel}
+            />
+          ))}
         </div>
-    )
+    );
 }

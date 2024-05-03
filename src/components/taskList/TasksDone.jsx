@@ -23,6 +23,7 @@ export const TasksDone = ({tasks}) => {
                 <TaskCard
                     id={task.uid}
                     nameTask={task.nameTask}
+                    startDate={task.startDate}
                     endDate={task.endDate}
                     statusTask={task.statusTask}
                     author={task.author}
