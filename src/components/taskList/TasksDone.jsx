@@ -1,27 +1,36 @@
 /* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TaskCard } from "./TaskCard";
+import { getCompletedTasks } from "../../services/api";
 
 export const TasksDone = ({tasks}) => {
-    const navigate  = useNavigate()
+    const [completedTasks, setCompletedTasks] = useState([]);
+    const navigate = useNavigate();
 
-    console.log("tasks llegando a TasksDone.jsx");
-    console.log(tasks);
-    console.log("final TasksDone.jsx");
-    const completedTasks = tasks.filter(task => task.statusTask === "Completed");
+    useEffect(() => {
+        const fetchCompletedTasks = async () => {
+            try {
+                const response = await getCompletedTasks();
+                setCompletedTasks(response.data.completedTasks);
+            } catch (error) {
+                console.error("Error fetching completed tasks:", error);
+            }
+        };
+
+        fetchCompletedTasks();
+    }, []);
+
     const handleNavigateToChannel = (id) => {
-        navigate(`/task/${id}`)
-    }
-    
-    console.log("completedTasks from task done")
-    console.log(completedTasks)
-
+        navigate(`/task/${id}`);
+    };
     
     return(
         <div className="tasks-container">
             {completedTasks.map((task) => (
                 <TaskCard
-                    id={task.uid}
+                    key={task._id} // Agrega la clave única para cada tarea
+                    id={task._id}
                     nameTask={task.nameTask}
                     startDate={task.startDate}
                     endDate={task.endDate}
@@ -32,5 +41,5 @@ export const TasksDone = ({tasks}) => {
                 />
             ))}
         </div>
-    )
-}
+    );
+};

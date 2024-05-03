@@ -1,25 +1,36 @@
 /* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TaskCard } from "./TaskCard";
+import { getEarringTasks } from "../../services/api";
 
 export const TasksEarring = ({tasks}) => {
-    const navigate  = useNavigate()
+    const [earringTasks, setEarringTasks] = useState([]);
+    const navigate = useNavigate();
 
-    console.log("tasks llegando a TasksDone.jsx");
-    console.log(tasks);
-    console.log("final TasksDone.jsx");
-    const earringTasks = tasks.filter(task => task.statusTask === "Earring");
+    useEffect(() => {
+        const fetchEarringTasks = async () => {
+            try {
+                const response = await getEarringTasks();
+                setEarringTasks(response.data.earringTasks);
+            } catch (error) {
+                console.error("Error fetching earring tasks:", error);
+            }
+        };
+
+        fetchEarringTasks();
+    }, []);
+
     const handleNavigateToChannel = (id) => {
-        navigate(`/task/${id}`)
-    }
+        navigate(`/task/${id}`);
+    };
     
-    console.log("earring tasks from task earring")
-    console.log(earringTasks)
     return(
         <div className="tasks-container">
             {earringTasks.map((task) => (
                 <TaskCard
-                    id={task.uid}
+                    key={task._id} // Agrega la clave única para cada tarea
+                    id={task._id}
                     nameTask={task.nameTask}
                     startDate={task.startDate}
                     endDate={task.endDate}
@@ -30,5 +41,5 @@ export const TasksEarring = ({tasks}) => {
                 />
             ))}
         </div>
-    )
-}
+    );
+};

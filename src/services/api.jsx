@@ -40,7 +40,7 @@ export const putCompleteTask = async (id) => {
 
 export const getCompletedTasks = async () => {
     try{
-        return await apiClient.get('/task/completed')
+        return await apiClient.get('task/completed')
     }catch(e){
         return{
             error: true,
@@ -81,6 +81,7 @@ export const putPendingTask = async (id) => {
         }
     }
 }
+
 
 const checkResponseStatus = (e) => {
     const responseStatus = e?.response?.status
